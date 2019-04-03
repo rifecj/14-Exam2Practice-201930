@@ -3,8 +3,8 @@ PRACTICE Exam 2, practice_problem 2.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Chloe Rife.
+"""  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ###############################################################################
 # Students:
@@ -44,7 +44,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # done: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4    ** tests that, taken together,
     #   would form a    ** REASONABLY GOOD test set **
@@ -59,6 +59,36 @@ def run_test_practice_problem2a():
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
 
+    format_string = '    practice_problem2a( {} )'
+    test_results = [0, 0]  # Number of tests passed, failed.
+
+    ## Test 1:
+    expected = [0,6000,1440,-2000]
+    print_expected_result_of_test([[-1000,5000,440,-3000],1000], expected,
+                                  test_results, format_string)
+    actual = practice_problem2a([-1000,5000,440,-3000],1000)
+    print_actual_result_of_test(expected, actual, test_results)
+
+    ## Test 2:
+    expected = [11, 3, 16, 25]
+    print_expected_result_of_test([[3, -5, 8, 17], 8], expected,
+                                  test_results, format_string)
+    actual = practice_problem2a([3, -5, 8, 17], 8)
+    print_actual_result_of_test(expected, actual, test_results)
+
+    ## Test 3:
+    expected = [50,120,145,74]
+    print_expected_result_of_test([[-25,45,70,-1],75], expected,
+                                  test_results, format_string)
+    actual = practice_problem2a([-25,45,70,-1],75)
+    print_actual_result_of_test(expected, actual, test_results)
+
+    ## Test 4:
+    expected = [1795,880,6220]
+    print_expected_result_of_test([[1295,380,5720],500], expected,
+                                  test_results, format_string)
+    actual = practice_problem2a([1295,380,5720],500)
+    print_actual_result_of_test(expected, actual, test_results)
 
 def practice_problem2a(sequence, delta):
     """
@@ -79,14 +109,16 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ###########################################################################
-    # TODO: 3. Implement and test this function.
+    # done: 3. Implement and test this function.
     #     WRITE THE TESTS FIRST (above).
     ###########################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ###########################################################################
-
+    for k in range(len(sequence)):
+        sequence[k]=sequence[k]+delta
+    return sequence
 
 def run_test_practice_problem2b():
     """ Tests the   practice_problem2b  function. """
@@ -194,7 +226,14 @@ def practice_problem2b(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ###########################################################################
-
+    final=''
+    for k in range(len(sequence)):
+        string=sequence[k]
+        if string=='':
+            pass
+        else:
+            final=final+string[0]
+    return final
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
